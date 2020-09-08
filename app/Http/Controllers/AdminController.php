@@ -25,7 +25,7 @@ class AdminController extends Controller
  
  
          $userinfo = user::all();
-         $userinfo = User::where('username',$username)
+         $user = user::where('username',$username)
         ->first();
          return view('admin.users')->with('user',$user)->with('userinfo',$userinfo);
      }
@@ -35,50 +35,37 @@ class AdminController extends Controller
         $username= $req->session()->get('sessionusername');
 
 
-        $user = Login_cred::where('username',$username)
-        ->first();
-        $userinfo = User_info::where('username',$username)
+        $user = user::where('username',$username)
         ->first();
 
-        $userprofile = Login_cred::where('username',$usernameprofile)
-        ->first();
-        $userinfoprofile = User_info::where('username',$usernameprofile)
+        $userprofile = user::where('username',$usernameprofile)
         ->first();
       
         return view('admin.viewprofile')->with('user',$user)
-                                             ->with('userinfo',$userinfo)
-                                             ->with('userprofile',$userprofile)
-                                             ->with('userinfoprofile',$userinfoprofile);
+                                        ->with('userprofile',$userprofile);
                                              
 
      }
 
      public function viewProfilePost(Request $req,$usernameprofile){
-        $userprofile = Login_cred::where('username',$usernameprofile)
-        ->first();
-        $userinfoprofile = User_info::where('username',$usernameprofile)
+        $userprofile = user::where('username',$usernameprofile)
         ->first();
 
-         $firstname=$req->firstname;
-         $lastname=$req->lastname;
+         $name=$req->name;
          $email=$req->email;
          $phone=$req->phone;
-         $phone=$req->phone;
-         $nid_no=$req->nid_no;
-         $gender=$req->gender;
+         $phone=$req->company;
          $usertype=$req->usertype;
         if($req->submit=="update"){
 
             if($firstname!=""){
-             $userinfoprofile->first_name=$firstname;
-             $userinfoprofile->last_name=$lastname;
-             $userinfoprofile->email=$email;
-             $userinfoprofile->phone=$phone;
-             $userinfoprofile->nid_no=$nid_no;
-             $userinfoprofile->gender=$gender;
-             $userprofile->usertype=$usertype;
-             $userinfoprofile->save();
-             $userprofile->save();
+            
+            $userprofile->name=$name;
+            $userprofile->email=$email;
+            $userprofile->phone=$phone;
+            $userprofile->company=$company;
+            $userprofile->usertype=$usertype;
+            $userprofile->save();
             }
             
            return redirect()->route('admin.viewprofile',$usernameprofile);
