@@ -71,18 +71,18 @@
 					</div>
 					<ul class="nav">
 						<li class="nav-item active">
-							<a href="/employee">
+							<a href="/admin">
 								<p>Dashboard</p>							
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/employee/users">
+							<a href="/admin/users">
 								<p>All Users</p>
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="/employee/register">
-								<p>Register Job</p>
+							<a href="/admin/register">
+								<p>Register</p>
 							</a>
 						</li>
 					</ul>
@@ -91,7 +91,45 @@
 			<div class="main-panel">
 				<div class="content">
 					<div class="container-fluid">
-						<h4 class="page-title">Dashboard</h4>
+						<h4 class="page-title">Register</h4>
+
+                        <!-- <form method="POST" action="/reg">
+                        <div class="form-group">
+                        <label for="formGroupExampleInput">Name</label>
+                          <input type="text" class="form-control" id="name" placeholder="Enter Name">
+                         </div>
+                         <div class="form-group">
+                          <label for="formGroupExampleInput2">email</label>
+                         <input type="text" class="form-control" id="email" placeholder="Email">
+                         </div>
+                         <div class="form-group">
+                          <label for="formGroupExampleInput2">phone</label>
+                         <input type="text" class="form-control" id="phone" placeholder="phone no">
+                         </div>
+                         <div class="form-group">
+                          <label for="formGroupExampleInput2">Company</label>
+                         <input type="text" class="form-control" id="company" placeholder="Company name">
+                         </div>
+                         <div class="form-group">
+                          <label for="formGroupExampleInput2">Password</label>
+                         <input type="password" class="form-control" id="password">
+                         </div>
+                            </form> -->
+
+                            <form action="/employee/register" method="POST">
+                                <input type="text" class="form-control" placeholder="Enter company" name="company">
+                                <br>
+								<input type="text" class="form-control" placeholder="Enter title" name="title">
+								<br>
+								<input type="text" class="form-control" id="name" placeholder="Enter location" name="location">
+								<br>
+								<input type="text" class="form-control"  placeholder="Enter salary" name="salary">
+								<br>
+                                <input type="submit" value="submit">
+                            </form>
+
+
+
 					</div>
 				</div>
 			</div>

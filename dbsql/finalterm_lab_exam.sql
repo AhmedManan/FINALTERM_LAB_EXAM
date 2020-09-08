@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 08, 2020 at 05:52 PM
+-- Generation Time: Sep 08, 2020 at 07:59 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -35,6 +35,26 @@ CREATE TABLE `failed_jobs` (
   `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jobs`
+--
+
+CREATE TABLE `jobs` (
+  `company` varchar(30) NOT NULL,
+  `title` varchar(30) NOT NULL,
+  `location` varchar(30) NOT NULL,
+  `salary` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `jobs`
+--
+
+INSERT INTO `jobs` (`company`, `title`, `location`, `salary`) VALUES
+('AIUB', 'TEACHER', 'DHAKA', '70000');
 
 -- --------------------------------------------------------
 
@@ -92,7 +112,10 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `phone`, `company`, `email`, `username`, `password`, `usertype`) VALUES
 (1, 'manan', '01748868061', 'AIUB', 'ahmed.mnn@outlook.com', 'mnn', '12345', 'admin'),
-(2, 'Broti', '01748868061', 'AIUB', 'mnn@outlook.com', 'broti', '12345', 'employee');
+(2, 'Broti', '01748868061', 'AIUB', 'mnn@outlook.com', 'broti', '12345', 'employee'),
+(3, 'mana', '01789894', 'bjhbjd', 'jhjh', 'mnnaaa', 'jkhgkjgb', 'jkgbjks'),
+(4, 'qwerty', '0123', 'qwerty', 'email', 'broti islam', '0123654', 'employee'),
+(5, 'erty', '0123', 'asdf', 'email2', 'mnn ahmed', '01254', 'employee');
 
 --
 -- Indexes for dumped tables
@@ -142,7 +165,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
