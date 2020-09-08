@@ -78,52 +78,37 @@ class AdminController extends Controller
 
     }
 
-    public function inventory(Request $req){
+    public function register(Request $req){
 
         $username= $req->session()->get('sessionusername');
- 
-         $inventory = inventory::all();
-         $user = Login_cred::where('username',$username)
-         ->first();
-         $userinfo = User_info::where('username',$username)
-         ->first();
-         return view('admin.admininventory')->with('user',$user)
-                                        ->with('userinfo',$userinfo)
-                                        ->with('inventory',$inventory);
+
+
+        $user = user::where('username',$username)
+        ->first();
+
+        return view('admin.register')->with('user',$user);
      }
 
-     public function inventoryPost(Request $req){
+     public function registerPost(Request $req){
 
         $username= $req->session()->get('sessionusername');
- 
-         $inventory = inventory::all();
-         $user = Login_cred::where('username',$username)
-         ->first();
-         $userinfo = User_info::where('username',$username)
-         ->first();
-
-         $item=$req->item;
-         $quantity=$req->quantity;
-        if($req->submit=="update"){
-
-            if($item!=""){
-             $inventory->item=$item;
-             $inventory->quantity=$quantity;
-             $inventory->save();
-            }
-            
-           return redirect()->route('admin.adminhome',$usernameprofile);
-        }
-        if($req->submit=="delete"){
-            $inventory->delete();
-            return redirect("/admin");
-        }
 
 
+        $user = user::where('username',$username)
+        ->first();
+
+        $users= new users();
+        $userinfo->id="1";
+        $userinfo->name="manan";
+        $userinfo->save();
+
+        return view('admin.register')->with('user',$user);
+     }
         //  return view('admin.admininventory')->with('user',$user)
         //                                 ->with('userinfo',$userinfo)
         //                                 ->with('inventory',$inventory);
-     }
+     
+    
 
 }
 

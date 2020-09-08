@@ -25,6 +25,7 @@ Route::get('/admin/users','AdminController@users');
 Route::get('/admin/viewprofile/{username}','AdminController@viewProfile')->name('admin.viewprofile');
 Route::post('/admin/viewprofile/{username}','AdminController@viewProfilePost')->name('admin.viewprofile');
 Route::get('/admin/register','AdminController@register');
+Route::post('/admin/register','AdminController@registerPost');
 
 //Employee 
 Route::get('/employee','EmployeeController@index');
