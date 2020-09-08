@@ -30,6 +30,16 @@ class AdminController extends Controller
          return view('admin.users')->with('user',$user)->with('userinfo',$userinfo);
      }
 
+     public function usersearch(Request $req){
+        $username= $req->session()->get('sessionusername');
+ 
+ 
+        $userinfo = user::all();
+        $user = user::where('username','like',$req->usersearch.'%')
+       ->get();
+       return response()->json(array('user'=> $user), 200);
+     }
+
      public function viewProfile(Request $req,$usernameprofile){
 
         $username= $req->session()->get('sessionusername');

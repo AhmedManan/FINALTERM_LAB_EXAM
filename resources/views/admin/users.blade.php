@@ -24,9 +24,12 @@
 			<nav class="navbar navbar-header navbar-expand-lg">
 				<div class="container-fluid">
 					
-					<form class="navbar-left navbar-form nav-search mr-md-3" action="">
-						<div class="input-group">
-							<input type="text" placeholder="Search ..." class="form-control">
+					<form class="navbar-left navbar-form nav-search mr-md-3" >
+						<div class="input-group" style="position: relative;">
+							<input type="text" id="usersearchid"  placeholder="Search ..." name="usersearch" class="form-control">
+							<div class="resultbox" style="position: absolute; left: 5%; top: 80%;">
+								
+							</div>
 							<div class="input-group-append">
 								<span class="input-group-text">
 									<i class="la la-search search-icon"></i>
@@ -136,4 +139,33 @@
 <script src="/js/user/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <script src="/js/user/ready.min.js"></script>
 <script src="/js/user/demo.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#usersearchid').keyup(function(e){
+				//e.preventDefault()
+				var value = $('#usersearchid').val();
+	$.ajax({
+              url: '/admin/usersearch',
+              type: 'POST',
+              data: {usersearch:value},
+              success: function (response) {
+                console.log(response.user);
+				$('.resultbox').html("");
+				for(let user of response.user){
+
+			   var atag=document.createElement('a')
+							atag.setAttribute('href',"")
+							atag.setAttribute('style',"display:block;")
+							atag.innerText=user.username;
+							$('.resultbox').append(atag)
+				}
+                
+              },
+              error: function (err) {
+                console.log(err);
+              }
+            });
+		});
+	});
+</script>
 </html>

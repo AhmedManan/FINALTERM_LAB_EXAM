@@ -22,6 +22,7 @@ Route::post('/login', 'LoginController@index');
 //admin 
 Route::get('/admin','AdminController@index');
 Route::get('/admin/users','AdminController@users');
+Route::post('/admin/usersearch','AdminController@usersearch');
 Route::get('/admin/viewprofile/{username}','AdminController@viewProfile')->name('admin.viewprofile');
 Route::post('/admin/viewprofile/{username}','AdminController@viewProfilePost')->name('admin.viewprofile');
 Route::get('/admin/register','AdminController@register');
