@@ -24,7 +24,7 @@ class AdminController extends Controller
         $username= $req->session()->get('sessionusername');
  
  
-         $user = userinfo::all();
+         $userinfo = user::all();
          $userinfo = User::where('username',$username)
         ->first();
          return view('admin.users')->with('user',$user)->with('userinfo',$userinfo);

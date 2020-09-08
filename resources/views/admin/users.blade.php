@@ -226,7 +226,7 @@
 									</tr>
 								</thead>
 								<tbody>
-								@foreach($user as $result)
+								@foreach($userinfo as $result)
 								<!-- if else condition to check all the admins -->
 								@if($result->usertype=="admin")
 									<tr>
