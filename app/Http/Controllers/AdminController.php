@@ -58,7 +58,7 @@ class AdminController extends Controller
          $usertype=$req->usertype;
         if($req->submit=="update"){
 
-            if($firstname!=""){
+            if($name!=""){
             
             $userprofile->name=$name;
             $userprofile->email=$email;
@@ -91,18 +91,21 @@ class AdminController extends Controller
 
      public function registerPost(Request $req){
 
-        $username= $req->session()->get('sessionusername');
+       
 
+        $users= new user();
+        $users->name=$req->name;
+        $users->phone=$req->phone;
+        $users->company=$req->company;
+        $users->email=$req->email;
+        $users->username=$req->username;
+        $users->password=$req->password;
+        $users->usertype=$req->usertype;
 
-        $user = user::where('username',$username)
-        ->first();
+       
+        $users->save();
 
-        $users= new users();
-        $userinfo->id="1";
-        $userinfo->name="manan";
-        $userinfo->save();
-
-        return view('admin.register')->with('user',$user);
+        return redirect('/admin/register');
      }
         //  return view('admin.admininventory')->with('user',$user)
         //                                 ->with('userinfo',$userinfo)

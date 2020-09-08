@@ -93,7 +93,7 @@
 					<div class="container-fluid">
 						<h4 class="page-title">Register</h4>
 
-                        <form>
+                        <!-- <form method="POST" action="/reg">
                         <div class="form-group">
                         <label for="formGroupExampleInput">Name</label>
                           <input type="text" class="form-control" id="name" placeholder="Enter Name">
@@ -108,8 +108,25 @@
                          </div>
                          <div class="form-group">
                           <label for="formGroupExampleInput2">Company</label>
-                         <input type="text" class="form-control" id="phone" placeholder="Company name">
+                         <input type="text" class="form-control" id="company" placeholder="Company name">
                          </div>
+                         <div class="form-group">
+                          <label for="formGroupExampleInput2">Password</label>
+                         <input type="password" class="form-control" id="password">
+                         </div>
+                            </form> -->
+
+                            <form action="/admin/register" method="POST">
+                                <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name">
+                                <br>
+                                <input type="text" class="form-control" id="name" placeholder="Enter phone" name="phone">
+                                <input type="text" class="form-control" id="company" placeholder="Enter Company" name="company">
+                                <input type="text" class="form-control" id="name" placeholder="Enter email" name="email">
+                                <input type="text" class="form-control"  placeholder="Enter username" name="username">
+                                <input type="password" class="form-control" placeholder="Enter phone" name="password">
+                                <input type="text" class="form-control" id="name" placeholder="Enter type" name="usertype">
+                                <!-- <input type="text" class="form-control" id="email" placeholder="Email"> -->
+                                <input type="submit" value="submit">
                             </form>
 
 
