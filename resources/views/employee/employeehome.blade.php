@@ -133,7 +133,7 @@
 							<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
 								<span>
 									{{$user->name}} 
-									<span class="user-level">Administrator</span>
+									<span class="user-level">Employee</span>
 									<span class="caret"></span>
 								</span>
 							</a>

@@ -22,3 +22,7 @@ Route::post('/login', 'LoginController@index');
 //admin 
 Route::get('/admin','AdminController@index');
 Route::get('/admin/users','AdminController@users');
+
+//Employee 
+Route::get('/employee','EmployeeController@index');
+Route::get('/employee/users','EmployeeController@users');
