@@ -24,10 +24,10 @@ class AdminController extends Controller
         $username= $req->session()->get('sessionusername');
  
  
-         $user = Login_cred::all();
-         $userinfo = User_info::where('username',$username)
+         $user = userinfo::all();
+         $userinfo = User::where('username',$username)
         ->first();
-         return view('admin.adminusers')->with('user',$user)->with('userinfo',$userinfo);
+         return view('admin.users')->with('user',$user)->with('userinfo',$userinfo);
      }
 
      public function viewProfile(Request $req,$usernameprofile){

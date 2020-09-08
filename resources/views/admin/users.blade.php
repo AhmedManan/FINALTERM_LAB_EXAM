@@ -212,6 +212,36 @@
 				<div class="content">
 					<div class="container-fluid">
 						<h4 class="page-title">Dashboard</h4>
+                        <!-- Admin Table -->
+						<p class="text-muted">ADMIN LIST</p>
+						<div style="height: 300px;" class="table-responsive my-table table-hover">
+							<table  class="table table-bordered">
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>ADMIN ID</th>
+										<th>USERNAME</th>
+										<th>EMAIL</th>
+										<th>Action</th>
+									</tr>
+								</thead>
+								<tbody>
+								@foreach($user as $result)
+								<!-- if else condition to check all the admins -->
+								@if($result->usertype=="admin")
+									<tr>
+										<th scope="row"></th>
+										<td>{{ $result->id  }}</td>
+										<td>{{ $result->username  }}</td>
+										<td>{{ $result->email  }}</td>
+										<td><a class="btn btn-default" href="/admin/viewprofile/{{$result->username}}">View Information</a></td>
+									</tr>
+									@endif
+									@endforeach
+								</tbody>
+							</table>
+						</div>
+						<!-- Admin table end -->
 					</div>
 				</div>
 			</div>
