@@ -96,6 +96,16 @@
 
 										<div class="row">
                                             <div class="col-sm-3 col-md-2 col-5">
+                                                <label style="font-weight:bold;">company</label>
+                                            </div>
+                                            <div class="col-md-8 col-6">
+											<input type="text" class="form-control" placeholder="company name" value="{{$userprofile->company}}" name="company">
+                                            </div>
+                                        </div>
+                                        <hr />
+
+										<div class="row">
+                                            <div class="col-sm-3 col-md-2 col-5">
                                                 <label style="font-weight:bold;">User Type</label>
 											</div>
 											<div class="col-md-8 col-6">

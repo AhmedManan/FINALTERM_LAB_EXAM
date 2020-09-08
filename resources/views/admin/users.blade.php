@@ -81,7 +81,7 @@
 							</a>
 						</li>
 						<li class="nav-item">
-							<a href="icons.html">
+							<a href="/admin/register">
 								<p>Register</p>
 							</a>
 						</li>
